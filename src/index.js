@@ -3,11 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-const DATA = [
-  { id: "todo-0", name: "Eat", completed: true },
-  { id: "todo-1", name: "Sleep", completed: false },
-  { id: "todo-2", name: "Repeat", completed: false },
-];
+// App based on https://github.com/mdn/todo-react
+
+const DATA = JSON.parse(localStorage.getItem('tasks') || '[]');
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

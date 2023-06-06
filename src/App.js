@@ -21,8 +21,13 @@ const FILTER_MAP = {
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
-  const [tasks, setTasks] = useState(props.tasks);
+  const [tasks, setTasksState] = useState(props.tasks);
   const [filter, setFilter] = useState("All");
+
+  function setTasks(updatedTasks) {
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    setTasksState(updatedTasks);
+  }
 
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
